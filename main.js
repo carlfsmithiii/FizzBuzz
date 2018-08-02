@@ -3,7 +3,8 @@ function fizzbuzz(upperLimit) {
     const paragraph = document.createElement("p");
     document.body.appendChild(paragraph);
     for (let i = 1; i <= upperLimit; i++) {
-        let numberSpan = document.createElement("span"); 
+        const numberSpan = document.createElement("span");
+        paragraph.appendChild(numberSpan);
         numberSpan.textContent = i;
         if (i % 2 === 0) {
             numberSpan.classList.add("bold");
@@ -12,9 +13,8 @@ function fizzbuzz(upperLimit) {
             numberSpan.classList.add("red");
         }
         if (arrayOfPrimeIndexes[i]) {
-            numberSpan.classList.add("boxed"); 
+            numberSpan.classList.add("boxed");
         }
-        paragraph.appendChild(numberSpan);
         if (i !== upperLimit) {
             paragraph.innerHTML += ', ';
         }
@@ -33,7 +33,7 @@ function generateArrayOfPrimes(upperLimit) {
                 isTheIndexPrime[i * j] = false;
             }
         }
-    } 
+    }
     return isTheIndexPrime;
 }
 
