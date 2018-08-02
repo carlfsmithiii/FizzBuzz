@@ -1,24 +1,24 @@
 function fizzbuzz(upperLimit) {
-    let arrayOfPrimeIndexes = generateArrayOfPrimes(upperLimit);
-    let fullString = "";
+    const arrayOfPrimeIndexes = generateArrayOfPrimes(upperLimit);
+    const paragraph = document.createElement("p");
+    document.body.appendChild(paragraph);
     for (let i = 1; i <= upperLimit; i++) {
-        let elementString = i.toString();
+        let numberSpan = document.createElement("span"); 
+        numberSpan.textContent = i;
         if (i % 2 === 0) {
-            elementString = "<span style='font-weight:bold'>" + elementString + "</span>";
+            numberSpan.classList.add("bold");
         }
         if (i % 3 === 0) {
-            elementString = "<span style='color:red'>" + elementString + "</span>";
+            numberSpan.classList.add("red");
         }
         if (arrayOfPrimeIndexes[i]) {
-            elementString = "<span style='border:1px solid black'>" + elementString + "</span>";   
+            numberSpan.classList.add("boxed"); 
         }
+        paragraph.appendChild(numberSpan);
         if (i !== upperLimit) {
-            elementString += ', ';
+            paragraph.innerHTML += ', ';
         }
-        fullString += elementString;
     }
-
-    document.write("<p>" + fullString + "</p>");
 }
 
 // Sieve of Eratosthenes

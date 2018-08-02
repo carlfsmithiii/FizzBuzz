@@ -1,0 +1,11 @@
+.bold {
+    font-weight: 700;
+}
+
+.red {
+    color: #f00;
+}
+
+.boxed {
+    border: 1px solid black;
+}
